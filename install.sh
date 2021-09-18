@@ -2,8 +2,8 @@
 
 sudo ls > /dev/null
 
-# Install Git
-sudo apt-get install -y git wget curl unrar unzip vim vlc python python3 ansible gnome-tweaks
+# Install Apps
+sudo apt-get install -y git tig wget curl unrar unzip vim vlc python python3 ansible gnome-tweaks
 git config --global user.name "Hamidreza Zare"
 git config --global user.email "shahrooz.1000@gmail.com"
 
