@@ -3,7 +3,7 @@
 sudo ls > /dev/null
 
 # Install Apps
-sudo apt-get install -y git tig wget curl unrar unzip vim vlc python python3 ansible gnome-tweaks
+sudo apt-get install -y git tig wget curl unrar unzip vim vlc python python3 ansible gnome-tweaks 
 git config --global user.name "Hamidreza Zare"
 git config --global user.email "shahrooz.1000@gmail.com"
 
@@ -17,19 +17,25 @@ sudo apt-get install sublime-text
 # Save current path
 cur_path=`pwd`
 
-# Install VirtualBox
-cd /tmp
-wget https://download.virtualbox.org/virtualbox/6.1.26/virtualbox-6.1_6.1.26-145957~Ubuntu~bionic_amd64.deb
-sudo apt-get install -y build-essential libcurl4 libqt5core5a libqt5gui5 libqt5opengl5 libqt5printsupport5 libqt5widgets5 libqt5x11extras5 libsdl1.2debian
-sudo dpkg -i virtualbox-6.1_6.1.26-145957~Ubuntu~bionic_amd64.deb
+# Install VirtualBox only if the host is on a bare machine
+sudo apt-get install -y virt-what
+is_virtual=$(sudo virt-what)
+if [ -z $is_virtual ]; then
+	# Install VirtualBox
+	cd /tmp
+	wget https://download.virtualbox.org/virtualbox/6.1.26/virtualbox-6.1_6.1.26-145957~Ubuntu~bionic_amd64.deb
+	sudo apt-get install -y build-essential libcurl4 libqt5core5a libqt5gui5 libqt5opengl5 libqt5printsupport5 libqt5widgets5 libqt5x11extras5 libsdl1.2debian
+	sudo dpkg -i virtualbox-6.1_6.1.26-145957~Ubuntu~bionic_amd64.deb
 
-# Download Ubuntu 18 iso
-cd ~/Downloads/
-wget https://old-releases.ubuntu.com/releases/18.04.5/ubuntu-18.04-desktop-amd64.iso
+	# Download Ubuntu 18 iso
+	cd ~/Downloads/
+	wget https://old-releases.ubuntu.com/releases/18.04.5/ubuntu-18.04-desktop-amd64.iso
+fi
+sudo apt-get purge -y virt-what
 
 # Install Oh-My-Zsh
 sudo apt install -y zsh
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --skip-chsh < /dev/null
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --skip-chsh
 sudo chsh -s $(which zsh) $(whoami)
 
 # Installing Telegram
