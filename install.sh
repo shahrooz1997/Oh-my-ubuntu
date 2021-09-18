@@ -109,3 +109,5 @@ sudo mv idea-IU-212.5284.40 /opt/
 cd /tmp
 wget https://az764295.vo.msecnd.net/stable/83bd43bc519d15e50c4272c6cf5c1479df196a4d/code_1.60.1-1631294805_amd64.deb
 sudo dpkg -i code_1.60.1-1631294805_amd64.deb
+
+sudo update-alternatives --set editor $(which vim.basic)
