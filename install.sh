@@ -3,9 +3,10 @@
 sudo ls > /dev/null
 
 # Install Apps
-sudo apt-get install -y git tig wget curl unrar unzip vim vlc python python3 ansible gnome-tweaks 
+sudo apt-get install -y git tig wget curl unrar unzip vim vlc python python3 ansible gnome-tweaks gparted
 git config --global user.name "Hamidreza Zare"
 git config --global user.email "shahrooz.1000@gmail.com"
+sudo update-alternatives --set editor $(which vim.basic)
 
 # Install sublime
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
@@ -35,7 +36,7 @@ sudo apt-get purge -y virt-what
 
 # Install Oh-My-Zsh
 sudo apt install -y zsh
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --skip-chsh
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --skip-chsh < /dev/null
 sudo chsh -s $(which zsh) $(whoami)
 
 # Installing Telegram
@@ -65,9 +66,11 @@ echo $curList
 gsettings set org.gnome.Terminal.ProfilesList list $curList
 gsettings set org.gnome.Terminal.ProfilesList default '980d4086-76bd-4989-9655-6f5330e4c5b5'
 
-cd
-tar -xzf $cur_path/ssh.tar.gz
-cd $cur_path
+if [ -f ssh.tar.gz ]; then
+	cd
+	tar -xzf $cur_path/ssh.tar.gz
+	cd $cur_path
+fi
 
 cd /tmp
 wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-357.0.0-linux-x86_64.tar.gz
@@ -110,4 +113,4 @@ cd /tmp
 wget https://az764295.vo.msecnd.net/stable/83bd43bc519d15e50c4272c6cf5c1479df196a4d/code_1.60.1-1631294805_amd64.deb
 sudo dpkg -i code_1.60.1-1631294805_amd64.deb
 
-sudo update-alternatives --set editor $(which vim.basic)
+
