@@ -28,6 +28,10 @@ if [ -z $is_virtual ]; then
 	sudo apt-get install -y build-essential libcurl4 libqt5core5a libqt5gui5 libqt5opengl5 libqt5printsupport5 libqt5widgets5 libqt5x11extras5 libsdl1.2debian
 	sudo dpkg -i virtualbox-6.1_6.1.26-145957~Ubuntu~bionic_amd64.deb
 
+	# Download VirtualBox Guest Additions
+	cd ~/Downloads/
+	wget https://download.virtualbox.org/virtualbox/6.1.26/VBoxGuestAdditions_6.1.26.iso
+
 	# Download Ubuntu 18 iso
 	cd ~/Downloads/
 	wget https://old-releases.ubuntu.com/releases/18.04.5/ubuntu-18.04-desktop-amd64.iso &
