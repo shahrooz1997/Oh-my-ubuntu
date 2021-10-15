@@ -30,7 +30,7 @@ if [ -z $is_virtual ]; then
 
 	# Download Ubuntu 18 iso
 	cd ~/Downloads/
-	wget https://old-releases.ubuntu.com/releases/18.04.5/ubuntu-18.04-desktop-amd64.iso
+	wget https://old-releases.ubuntu.com/releases/18.04.5/ubuntu-18.04-desktop-amd64.iso &
 fi
 sudo apt-get purge -y virt-what
 
