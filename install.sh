@@ -95,7 +95,7 @@ gsettings set org.gnome.desktop.screensaver lock-enabled false
 backgroundURI=${cur_path}/background.png
 gsettings set org.gnome.desktop.background picture-uri ${backgroundURI}
 gsettings set org.gnome.desktop.background primary-color '#000000'
-gsettings set org.gnome.desktop.background picture-options 'centered'
+gsettings set org.gnome.desktop.background picture-options 'scaled'
 gsettings set org.gnome.nautilus.desktop volumes-visible false
 gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,close'
 gsettings set org.gnome.desktop.interface clock-show-date true
