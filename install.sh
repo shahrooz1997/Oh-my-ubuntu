@@ -2,6 +2,8 @@
 
 sudo ls > /dev/null
 
+set -e
+
 # Install Apps
 sudo apt-get install -y git tig wget curl unrar unzip vim vlc python python3 ansible gnome-tweaks gparted
 git config --global user.name "Hamidreza Zare"
@@ -34,7 +36,11 @@ if [ -z $is_virtual ]; then
 
 	# Download Ubuntu 18 iso
 	cd ~/Downloads/
-	wget https://old-releases.ubuntu.com/releases/18.04.5/ubuntu-18.04-desktop-amd64.iso &
+	wget https://releases.ubuntu.com/18.04/ubuntu-18.04.6-desktop-amd64.iso
+	if [ $(sha256sum ubuntu-18.04.6-desktop-amd64.iso) != "f730be589aa1ba923ebe6eca573fa66d09ba14c4c104da2c329df652d42aff11" ]; then
+		echo "Download of https://releases.ubuntu.com/18.04/ubuntu-18.04.6-desktop-amd64.iso was unsuccessful"
+		exit 1
+	fi
 fi
 sudo apt-get purge -y virt-what
 
@@ -86,7 +92,7 @@ cd /opt
 
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 gsettings set org.gnome.desktop.screensaver lock-enabled false
-backgroundURI=${cur_path}/background.jpg
+backgroundURI=${cur_path}/background.png
 gsettings set org.gnome.desktop.background picture-uri ${backgroundURI}
 gsettings set org.gnome.desktop.background primary-color '#000000'
 gsettings set org.gnome.desktop.background picture-options 'centered'
