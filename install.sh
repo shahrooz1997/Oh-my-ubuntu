@@ -109,14 +109,46 @@ tar -xzf CLion-2021.2.2.tar.gz
 sudo mv clion-2021.2.2 /opt/
 cd /opt/clion-2021.2.2/bin
 ./clion.sh &
+sudo ln -s /opt/clion-2021.2.2/bin/clion.sh /usr/local/bin/clion
+sudo bash -c 'printf "[Desktop Entry]
+Name=CLion
+Exec=/opt/clion-2021.2.2/bin/clion.sh
+Icon=/opt/clion-2021.2.2/bin/clion.png
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=Application;
+Name[en_US]=CLion\n" > /usr/share/applications/CLion.desktop'
+
 cd /tmp
 wget https://download-cdn.jetbrains.com/python/pycharm-professional-2021.2.2.tar.gz
 tar -xzf pycharm-professional-2021.2.2.tar.gz
 sudo mv pycharm-2021.2.2 /opt/
+sudo ln -s /opt/pycharm-2021.2.2/bin/pycharm.sh /usr/local/bin/pycharm
+sudo bash -c 'printf "[Desktop Entry]
+Name=PyCharm
+Exec=/opt/pycharm-2021.2.2/bin/pycharm.sh
+Icon=/opt/pycharm-2021.2.2/bin/pycharm.png
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=Application;
+Name[en_US]=PyCharm\n" > /usr/share/applications/PyCharm.desktop'
+
 cd /tmp
 wget https://download-cdn.jetbrains.com/idea/ideaIU-2021.2.2.tar.gz
 tar -xzf ideaIU-2021.2.2.tar.gz
 sudo mv idea-IU-212.5284.40 /opt/
+sudo ln -s /opt/idea-IU-212.5284.40/bin/idea.sh /usr/local/bin/idea
+sudo bash -c 'printf "[Desktop Entry]
+Name=Idea
+Exec=/opt/idea-IU-212.5284.40/bin/idea.sh
+Icon=/opt/idea-IU-212.5284.40/bin/idea.png
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=Application;
+Name[en_US]=Idea\n" > /usr/share/applications/Idea.desktop'
 
 # Install VS Code
 cd /tmp
