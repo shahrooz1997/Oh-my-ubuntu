@@ -36,10 +36,6 @@ if [ -z $is_virtual ]; then
 	# Download Ubuntu 18 iso
 	cd ~/Downloads/
 	wget https://releases.ubuntu.com/18.04/ubuntu-18.04.6-desktop-amd64.iso
-	if [ $(sha256sum ubuntu-18.04.6-desktop-amd64.iso) != "f730be589aa1ba923ebe6eca573fa66d09ba14c4c104da2c329df652d42aff11" ]; then
-		echo "Download of https://releases.ubuntu.com/18.04/ubuntu-18.04.6-desktop-amd64.iso was unsuccessful"
-		exit 1
-	fi
 else
 	# Download VirtualBox Guest Additions
 	cd /tmp
@@ -58,8 +54,8 @@ sudo chsh -s $(which zsh) $(whoami)
 
 # Installing Telegram
 cd /tmp
-wget https://updates.tdesktop.com/tlinux/tsetup.3.0.1.tar.xz
-tar -xvf tsetup.3.0.1.tar.xz
+wget https://updates.tdesktop.com/tlinux/tsetup.3.4.8.tar.xz
+tar -xvf tsetup.3.4.8.tar.xz
 sudo mv Telegram /opt/
 cd
 /opt/Telegram/Telegram &
