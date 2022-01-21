@@ -5,7 +5,7 @@ sudo ls > /dev/null
 set -e
 
 # Install Apps
-sudo apt-get install -y git tig wget curl unrar unzip vim vlc python python3 ansible gnome-tweaks gparted python-virtualenv proxychains uget python3-pip python-pip apt-transport-https ca-certificates curl software-properties-common
+sudo apt-get install -y git tig wget curl unrar unzip vim build-essential vlc python python3 ansible gnome-tweaks gparted python-virtualenv proxychains uget python3-pip python-pip apt-transport-https ca-certificates curl software-properties-common
 git config --global user.name "Hamidreza Zare"
 git config --global user.email "shahrooz.1000@gmail.com"
 sudo update-alternatives --set editor $(which vim.basic)
@@ -25,13 +25,13 @@ is_virtual=$(sudo virt-what)
 if [ -z $is_virtual ]; then
 	# Install VirtualBox
 	cd /tmp
-	wget https://download.virtualbox.org/virtualbox/6.1.26/virtualbox-6.1_6.1.26-145957~Ubuntu~bionic_amd64.deb
-	sudo apt-get install -y build-essential libcurl4 libqt5core5a libqt5gui5 libqt5opengl5 libqt5printsupport5 libqt5widgets5 libqt5x11extras5 libsdl1.2debian
-	sudo dpkg -i virtualbox-6.1_6.1.26-145957~Ubuntu~bionic_amd64.deb
+	wget https://download.virtualbox.org/virtualbox/6.1.32/virtualbox-6.1_6.1.32-149290~Ubuntu~bionic_amd64.deb
+	sudo apt-get install -y libcurl4 libqt5core5a libqt5gui5 libqt5opengl5 libqt5printsupport5 libqt5widgets5 libqt5x11extras5 libsdl1.2debian
+	sudo dpkg -i virtualbox-6.1_6.1.32-149290~Ubuntu~bionic_amd64.deb
 
 	# Download VirtualBox Guest Additions
 	cd ~/Downloads/
-	wget https://download.virtualbox.org/virtualbox/6.1.26/VBoxGuestAdditions_6.1.26.iso
+	wget https://download.virtualbox.org/virtualbox/6.1.32/VBoxGuestAdditions_6.1.32.iso
 
 	# Download Ubuntu 18 iso
 	cd ~/Downloads/
