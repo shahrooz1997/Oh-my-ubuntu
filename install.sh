@@ -40,6 +40,14 @@ if [ -z $is_virtual ]; then
 		echo "Download of https://releases.ubuntu.com/18.04/ubuntu-18.04.6-desktop-amd64.iso was unsuccessful"
 		exit 1
 	fi
+else
+	# Download VirtualBox Guest Additions
+	cd /tmp
+	wget https://download.virtualbox.org/virtualbox/6.1.32/VBoxGuestAdditions_6.1.32.iso
+	sudo mkdir /tmp/VBoxGuestAdditions_6.1.32_mount_point
+	sudo mount VBoxGuestAdditions_6.1.32.iso /tmp/VBoxGuestAdditions_6.1.32_mount_point
+	cd VBoxGuestAdditions_6.1.32_mount_point/
+	sudo ./autorun.sh
 fi
 sudo apt-get purge -y virt-what
 
