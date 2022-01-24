@@ -5,7 +5,7 @@ sudo ls > /dev/null
 set -e
 
 # Install Apps
-sudo apt-get install -y git tig wget curl unrar unzip vim build-essential vlc python python3 ansible gnome-tweaks gparted python-virtualenv proxychains uget python3-pip python-pip apt-transport-https ca-certificates curl software-properties-common
+sudo apt-get install -y git tig wget curl unrar unzip vim build-essential vlc python python3 ansible gnome-tweaks gparted python-virtualenv proxychains uget python3-pip python-pip apt-transport-https ca-certificates curl software-properties-common pinta
 git config --global user.name "Hamidreza Zare"
 git config --global user.email "shahrooz.1000@gmail.com"
 sudo update-alternatives --set editor $(which vim.basic)
